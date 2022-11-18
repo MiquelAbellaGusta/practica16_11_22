@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market</title>
+</head>
+
+<body>
+    <script>
+
+        let list = '';
+        let type = '';
+        let precio = '';
+        let pricestock = '';
+
+        let productos = new Array({
+
+            name: 'leche',
+            price: 0.9,
+            stock: true,
+            category: 'lacteo'
+        }, {
+            name: 'pollo',
+            price: 5.45,
+            stock: true,
+            category: 'carne'
+        }, {
+            name: 'sandia',
+            price: 1.23,
+            stock: false,
+            category: 'fruta'
+        }, {
+            name: 'merluza',
+            price: 6.54,
+            stock: true,
+            category: 'pescado'
+        }, {
+            name: 'judias',
+            price: 1.35,
+            stock: false,
+            category: 'verdura'
+        }, {
+            name: 'alcachofas',
+            price: 2.98,
+            stock: true,
+            category: 'verdura'
+        }, {
+            name: 'queso',
+            price: 20.2,
+            stock: false,
+            category: 'lacteo'
+        }, {
+            name: 'cerdo',
+            price: 5.67,
+            stock: true,
+            category: 'carne'
+        }, {
+            name: 'salmon',
+            price: 7.89,
+            stock: false,
+            category: 'pescado'
+        }, {
+            name: 'pera',
+            price: 2.89,
+            stock: true,
+            category: 'fruta'
+        }
+
+
+        )
+        function price(plist, maxValue, minValue) {
+            precio = plist.filter(function (producto) {
+                if (producto.price <= maxValue && producto.price >= minValue) { return true }
+            })
+
+        }
+        price(productos, 3, 1)
+
+        console.log(precio)
+        console.log('-----------------------')
+
+        function category(plist, categoria) {
+            type = productos.filter(function (producto) {
+                if (producto.category == categoria) { return true }
+            })
+
+
+        }
+        category(productos, 'verdura')
+
+        console.log(type)
+        console.log('-----------------------')
+
+        function stock(plist) {
+            list = productos.filter(function (producto) {
+                if (producto.stock == true) { return true }
+            })
+
+        }
+
+        stock(productos)
+        console.log(list)
+        console.log('-----------------------')
+
+        function priceStock(price) {
+            pricestock = price.filter(function (producto) {
+                if (producto.stock == true) { return true }
+            })
+        }
+        priceStock(precio)
+        console.log(pricestock);
+
+    </script>
+</body>
+
+</html>

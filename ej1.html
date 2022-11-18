@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHESS</title>
+    <link rel="stylesheet" href="reset.css">
+
+
+</head>
+
+<body>
+
+    <script>
+
+        const SQUARES = parseInt(prompt('Type a number of squares'))
+        const SIDE = parseInt(prompt('Type the square size'))
+
+        let color = "";
+        let htmlsquare = "";
+        let square = "";
+
+
+        const squares = (pSide, pColor) => square = '<div style="background-color: ' + pColor + ';width:' + pSide + 'px; height:' + pSide + 'px;"></div>'
+
+        function rows(pSquares, pSide, inverse) {
+
+            let rowhtml = "";
+            for (let i = 1; i <= pSquares; i++) {
+                if (inverse) {
+                    color = (i % 2 == 0) ? 'grey' : 'black';
+                }
+                else if (!inverse) {
+                    color = (i % 2 !== 0) ? 'grey' : 'black';
+                }
+                htmlsquare = squares(SIDE, color);
+                rowhtml += htmlsquare;
+
+            }
+            return rowhtml;
+        }
+
+        function chess(pRows, pSide) {
+            for (let i = 1; i <= pRows; i++) {
+                let inverse = (i % 2 === 0) ? true : false;
+
+                document.write(`<div style="display:flex">${rows(pRows, pSide, inverse)}</div>`)
+
+            }
+        }
+        chess(SQUARES, SIDE)
+    </script>
+
+
+</body>
+
+</html>

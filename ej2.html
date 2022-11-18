@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Counter</title>
+</head>
+
+<body>
+    <script>
+        let counter = 0;
+        let letterRepeat = 0
+
+
+        const texto = prompt('Type a sentence')
+
+        function Letter(letra) {
+            let caracter = letra.toLowerCase().charCodeAt(0);
+            if (caracter !== 32) { return true }
+            return false
+        }
+
+
+
+        function LetterCounter(ptexto) {
+            counter = 0;
+            for (i = 0; i < ptexto.length; i++) {
+                if (Letter(ptexto[i]))
+                    counter++
+            }
+            return counter;
+
+        }
+        LetterCounter(texto)
+        document.write(`<h1>This sentence have ${counter} letters</h1>`)
+
+        function stringTOarray(ptext) {
+            const letterList = new Array();
+            for (let i = 0; i < ptext.length; i++) {
+                if (Letter(ptext[i])) {
+                    letterList[letterList.length] = ptext[i];
+                }
+            }
+            return letterList
+        }
+        let letterList = stringTOarray(texto);
+
+        let newtext = letterList.join('');
+        document.write(newtext);
+
+        function LetterRepeat(ptext, pletter) {
+            letterRepeat = 0;
+            for (i = 0; i < ptext.length; i++) {
+                if (ptext.toLowerCase()[i] === pletter.toLowerCase()) letterRepeat++
+            }
+            return letterRepeat
+        }
+        LetterRepeat(texto, 'a');
+
+
+
+
+    </script>
+</body>
+
+</html>
